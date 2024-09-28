@@ -1,6 +1,6 @@
 FROM node:20
 
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && apt-get update \
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && apt-get update && apt-get -y upgrade \
     && dpkg -i google-chrome-stable_current_amd64.deb; apt --fix-broken -y install \
     && apt remove --purge -y google-chrome-stable \
     && rm -rf /opt && rm google-chrome-stable_current_amd64.deb && apt-get clean
